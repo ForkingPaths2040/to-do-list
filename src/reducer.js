@@ -3,7 +3,7 @@ import { ACTIONS } from "./actions";
 const reducer = (
   state = {
     list: [],
-    toDoName: "",
+    taskName: "",
     username: "",
   },
   action
@@ -17,7 +17,7 @@ const reducer = (
     case ACTIONS.UPDATENAME:
       return {
         ...state,
-        toDoName: action.toDoName,
+        taskName: action.taskName,
       };
     default:
       return state;

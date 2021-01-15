@@ -8,25 +8,17 @@ class Home extends Component {
     return (
       <div>
         <h1>To Do List</h1>
-        {/* <label htmlFor="task-name"></label>
+        <label htmlFor="task-name"></label>
         <input
           name="task-name"
-          value={this.props.toDoName}
-          onChange={(e) => {
-            this.props.toDoUpdate(e);
-          }}
+          value={this.props.taskName}
+          onChange={this.props.toDoUpdate}
           placeholder="Add a task"
-        ></input> */}
-        <button
-          onClick={() => {
-            this.props.addToDo("Example");
-          }}
-        >
-          add to List
-        </button>
+        ></input>
+        <button onClick={this.props.addToDo}>add to List</button>
         <ul>
           {this.props.list.map((task, index) => {
-            return <li key={`${index}-task`}>{task}</li>;
+            return <li key={`${index}-task`}>{task.job}</li>;
           })}
         </ul>
       </div>
@@ -37,7 +29,7 @@ class Home extends Component {
 function mapProps(state) {
   return {
     list: state.list,
-    toDoName: state.toDoName,
+    taskName: state.taskName,
   };
 }
 

@@ -8,12 +8,14 @@ export const ACTIONS = {
   TOGGLESTATUS: "TOGGLESTATUS",
 };
 
-export function addToDo(newItem) {
-  console.log("Got new item", newItem);
-  const { list } = store.getState();
+export function addToDo() {
+  const { list, taskName } = store.getState();
 
   const newList = [].concat(list);
-  newList.push(newItem);
+  // helper function used to push an object to the array (multiple objects in an array). task name is the argument that is only an input but has other properties as it is an object
+  newList.push(createToDo(taskName));
+
+  console.log("Got new item", taskName);
 
   return store.dispatch({
     type: ACTIONS.ADDTODO,
@@ -27,7 +29,7 @@ export function addToDo(newItem) {
   // };
 }
 
-export function createdToDo(job = "") {
+export function createToDo(job = "") {
   return {
     job,
     status: "incomplete",
@@ -39,8 +41,8 @@ export function toDoUpdate(e) {
   console.log("got event", e.target.value);
   return store.dispatch({
     type: ACTIONS.UPDATENAME,
-    toDoName: e.target.value,
+    taskName: e.target.value,
   });
 }
 
-export default { addToDo, toDoUpdate };
+export default { addToDo, toDoUpdate, createToDo };
