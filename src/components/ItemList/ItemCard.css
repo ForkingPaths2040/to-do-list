@@ -1,11 +1,12 @@
 .card {
-  width: 10%;
+  min-width: 15%;
   padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid lightgray;
+  margin: 10px;
 }
 .card-header {
   display: flex;
