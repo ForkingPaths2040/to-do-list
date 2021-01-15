@@ -35,4 +35,12 @@ export function createdToDo(job = "") {
   };
 }
 
-export default { addToDo };
+export function toDoUpdate(e) {
+  console.log("got event", e.target.value);
+  return store.dispatch({
+    type: ACTIONS.UPDATENAME,
+    toDoName: e.target.value,
+  });
+}
+
+export default { addToDo, toDoUpdate };
