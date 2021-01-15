@@ -9,7 +9,7 @@ const reducer = (
   action
 ) => {
   switch (action.type) {
-    case ACTIONS.ADDTODO:
+    case ACTIONS.UPDATELIST:
       return {
         ...state,
         list: action.list,

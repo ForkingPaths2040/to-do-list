@@ -5,7 +5,7 @@ class ItemCard extends Component {
   render() {
     return (
       <div className='card' style={{
-        backgroundColor: this.props.item.status === 'complete' ? 'lightgreen' : ''
+        backgroundColor: this.props.item.status === 'complete' ? 'lightgreen' : 'white'
     }}>
         <div className='card-header'>
             <input type="checkbox" onChange={() => this.props.onchange(this.props.index)}></input>

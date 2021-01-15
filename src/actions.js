@@ -18,7 +18,8 @@ export function addToDo() {
   console.log("Got new item", taskName);
 
   return store.dispatch({
-    type: ACTIONS.ADDTODO,
+    // dispatch calls on the reducer and the intructions are within ACTIONS on what state to update throughout all UI
+    type: ACTIONS.UPDATELIST,
     list: newList,
   });
   // return (dispatch, getState) => {
@@ -45,4 +46,20 @@ export function toDoUpdate(e) {
   });
 }
 
-export default { addToDo, toDoUpdate, createToDo };
+export function toggleStatus(index) {
+  const { list } = store.getState();
+
+  const newList = [].concat(list);
+
+  if (newList[index].status === "incomplete") {
+    newList[index].status = "complete";
+  } else {
+    newList[index].status = "incomplete";
+  }
+  return store.dispatch({
+    type: ACTIONS.UPDATELIST,
+    list: newList,
+  });
+}
+
+export default { addToDo, toDoUpdate, createToDo, toggleStatus };

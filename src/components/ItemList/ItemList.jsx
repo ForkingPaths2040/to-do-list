@@ -7,7 +7,7 @@ class ItemList extends Component {
     return (
       <div className="list-container">
           {this.props.list.map((task, index) => {
-            return <ItemCard key={`${index}_${task.name}`} item={task} />;
+            return <ItemCard onchange={ this.props.toggleStatus }key={`${index}_${task.name}`} index={index} item={task} />;
           })}
       </div>
     );

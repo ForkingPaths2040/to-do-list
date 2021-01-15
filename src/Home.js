@@ -34,6 +34,7 @@ function mapDispatch(dispatch) {
   return {
     addToDo: (newItem) => dispatch(actions.addToDo(newItem)),
     toDoUpdate: (e) => dispatch(actions.toDoUpdate(e)),
+    toggleStatus: (index) => dispatch(actions.toggleStatus(index)),
   };
 }
 
