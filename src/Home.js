@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import actions from "./actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "react-redux";
+import ItemList from "./components/ItemList/ItemList";
 
 class Home extends Component {
   render() {
@@ -16,11 +17,7 @@ class Home extends Component {
           placeholder="Add a task"
         ></input>
         <button onClick={this.props.addToDo}>add to List</button>
-        <ul>
-          {this.props.list.map((task, index) => {
-            return <li key={`${index}-task`}>{task.job}</li>;
-          })}
-        </ul>
+        <ItemList {...this.props} />
       </div>
     );
   }
