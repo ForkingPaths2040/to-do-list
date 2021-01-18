@@ -13,6 +13,7 @@ class ItemCard extends Component {
         </div>  
         <p>Status: {this.props.item.status}</p>
         <p>Created: {new Date(this.props.item.createdAt).toLocaleString()}</p>
+        <button onClick={() => this.props.removeToDo(this.props.index)}>Remove</button>
       </div>
     );
   }

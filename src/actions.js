@@ -62,4 +62,17 @@ export function toggleStatus(index) {
   });
 }
 
-export default { addToDo, toDoUpdate, createToDo, toggleStatus };
+export function removeToDo(index) {
+  const { list } = store.getState();
+
+  const newList = [].concat(list);
+
+  newList.splice(index, 1);
+
+  return store.dispatch({
+    type: ACTIONS.UPDATELIST,
+    list: newList,
+  });
+}
+
+export default { addToDo, toDoUpdate, createToDo, toggleStatus, removeToDo };
